@@ -1,0 +1,25 @@
+services:
+  # Backend Express API
+  - type: web
+    name: learningloop-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/index.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+
+  # Frontend React (Static Site)
+  - type: web
+    name: learningloop-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
