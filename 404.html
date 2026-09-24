@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LEARNING LOOPS</title>
+    <script>
+      // GitHub Pages SPA redirect fix — preserves React Router paths on hard refresh
+      var l = window.location;
+      var seg = l.pathname.split('/').slice(0, 2).join('/');
+      if (l.pathname.replace(seg, '') !== '') {
+        sessionStorage.redirect = l.pathname + l.search;
+        l.replace(seg + '/?p=' + encodeURIComponent(l.pathname.slice(seg.length) + l.search));
+      }
+    </script>
+  </head>
+  <body>
+    This page is intentionally blank. You are being redirected...
+  </body>
+</html>
